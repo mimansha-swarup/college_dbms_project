@@ -17,10 +17,14 @@
                 <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/register">Register</a>
+                <a class="nav-link" href="/student">Student</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/login">Login</a>
+                <a class="nav-link" href="/teacher">Teacher</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/admin">Admin</a>
+            </li>
         </ul>
 
     </nav>
@@ -41,71 +45,7 @@
             <div class="col-lg-" style="margin: 5%;">
             </div>
 
-            <div class="col jumbotron" style=" padding: 2%;">
 
-                <form action="index.ejs" class="align-middle">
-
-                    <div style="display: flex; justify-content: center; align-items: center;">
-
-                        <img src="/img/avatar.svg" class="rounded mx-auto " style="width:150px; margin: 10px;" />
-                    </div>
-                    <br>
-                    <hr class="my-4">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Name</span>
-                        </div>
-                        <input type="text" class="form-control" id="name" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-user-tie"></i></span>
-                        </div>
-                        <select class="form-control" required>
-                            <option disabled selected>Select</option>
-                            <option value="faculty">Faculty</option>
-                            <option value="student">Student</option>
-                        </select>
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Branch</span>
-                        </div>
-                        <input type="text" class="form-control" id="branch" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Sem</span>
-                        </div>
-                        <input type="text" class="form-control" id="sem" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Class</span>
-                        </div>
-                        <input type="text" class="form-control" id="class" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
-                    </div>
-
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Password</span>
-                        </div>
-                        <input type="password" class="form-control" id="pass" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
-                    </div>
-
-
-                    <br>
-
-                    <input type="submit" value="Submit" class="btn btn-success rounded" style="width: 100%; margin-bottom: 1.9rem;">
-                </form>
-
-
-            </div>
         </div>
 
     </div>

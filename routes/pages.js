@@ -8,10 +8,17 @@ router.get('/', (req, res) => {
     res.render("homepage");
 
 });
-router.get('/register', (req, res) => {
+router.get('/admin', (req, res) => {
 
-    res.render("register");
+    res.render("admin");
 
 });
+router.get('/teacher', (req, res) => {
+
+    res.render("teacher");
+
+});
+
+
 
 module.exports = router;
