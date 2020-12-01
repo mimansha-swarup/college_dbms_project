@@ -41,46 +41,65 @@
         <div class="jumbotron">
             <div class="container-sm">
                 <h4 class="display-4 text-center" style="margin-bottom: 3%;">Update Student Marks</h4>
-                <form action="/auth/updateMarks" method="POST" class="align-middle">
 
-                    <h3 style="margin-bottom: 2%;"> <span class="badge badge-pill badge-dark">Search By USN</span></h3>
+                <form action="/auth/search" method="POST">
+                    <h3 style="margin-bottom: 2%; "> <span class="badge badge-pill badge-dark ">Search By USN</span></h3>
+                    <input type="search" name="usnSearch" id="usnSearch">
+                    <input type="submit" value="submit">
+                    <% if(typeof message!= "undefined" && message) { %>
+                        <h4 class="alert alert-success mt-4">
+                            Previous Marks for usn
+                            <%= message.usn %> are <br> Assignment1:
+                                <%= message.assignment1 %> <br> Assignment2 :
+                                    <%= message.assignment2 %> <br> Assignment3 :
+                                        <%= message.assignment3 %>
+                        </h4>
+                        <% } %>
 
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Usn</i></span>
+                </form>
+
+                <hr class="my-4 ">
+
+                <form action="/auth/updateMarks" method=" POST " class="align-middle ">
+
+
+
+
+                    <h3 style="margin-bottom: 2%; "> <span class="badge badge-pill badge-dark ">Update Assignment Marks</span></h3>
+
+                    <div class="input-group mb-3 ">
+                        <div class="input-group-prepend ">
+                            <span class="input-group-text " id="inputGroup-sizing-default ">Usn</i></span>
                         </div>
-                        <input type="text" on class="form-control" onchange="showInfo()" placeholder="Usn" id="usn" name="usnU" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                        <input type="text " on class="form-control " placeholder="USN " id="usn " name="usnU " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-default " required>
                     </div>
 
 
-                    <hr class="my-4">
-
-                    <h3 style="margin-bottom: 2%;"> <span class="badge badge-pill badge-dark">Update Assignment Marks</span></h3>
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Assignment 1</i></span>
+                    <div class="input-group mb-3 ">
+                        <div class="input-group-prepend ">
+                            <span class="input-group-text " id="inputGroup-sizing-default ">Assignment 1</i></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Assignment 1" id="a1" name="a1" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        <input type="text " class="form-control " placeholder="  Assignment 1  " id="a1 " name="a1 " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-default ">
                     </div>
 
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Assignment 2</i></span>
+                    <div class="input-group mb-3 ">
+                        <div class="input-group-prepend ">
+                            <span class="input-group-text " id="inputGroup-sizing-default ">Assignment 2</i></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Assignment 2" id="a2" name="a2" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        <input type="text " class="form-control " placeholder="Assignment 2 " id="a2 " name="a2 " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-default ">
                     </div>
 
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text" id="inputGroup-sizing-default">Assignment 3</i></span>
+                    <div class="input-group mb-3 ">
+                        <div class="input-group-prepend ">
+                            <span class="input-group-text " id="inputGroup-sizing-default ">Assignment 3</i></span>
                         </div>
-                        <input type="text" class="form-control" placeholder="Assignment 3" id="a3" name="a3" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+                        <input type="text " class="form-control " placeholder="Assignment 3 " id="a3 " name="a3 " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-default ">
                     </div>
 
 
                     <br>
 
-                    <input type="submit" value="Submit" class="btn btn-success rounded" style="width: 75%; margin-bottom: 1.9rem;">
+                    <input type="submit " value="Submit " class="btn btn-success rounded " style="width: 75%; margin-bottom: 1.9rem; ">
 
                 </form>
 

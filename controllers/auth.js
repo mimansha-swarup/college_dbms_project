@@ -59,31 +59,6 @@ exports.updateMarks = (req, res) => {
 
 
 
-    mysqlConnection.query(`select assignment1 ,assignment2 ,assignment3 from  student  where  usn = ${usnU}`, (error, results) => {
-
-        const aa1 = document.getElementById("a1");
-        const aa2 = document.getElementById("a2");
-        const aa3 = document.getElementById("a3");
-
-        if (error) {
-            console.log(error);
-
-        } else {
-            console.log("-------------------------results1-------------------------\n");
-            console.log(results);
-            console.log("-------------------------results1-------------------------\n");
-
-
-            aa1.value = results.assignment1
-            aa2.value = results.assignment2
-            aa3.value = results.assignment3
-        }
-    });
-
-
-
-
-
 
 
     mysqlConnection.query(`update student set ? where usn = ${usnU}`, { assignment1: a1, assignment2: a2, assignment3: a3 }, (error, results) => {
@@ -94,13 +69,37 @@ exports.updateMarks = (req, res) => {
             console.log(error);
 
         } else {
-            console.log("-------------------------results-------------------------\n");
-            console.log(results);
-            console.log("-------------------------results-------------------------\n");
+            return res.render('teacher')
+
+        }
+    });
+
+
+}
+
+exports.search = (req, res) => {
+
+    const { usnSearch } = req.body;
+
+    mysqlConnection.query(`select assignment1 ,assignment2 ,assignment3 from  student  where  usn = ${usnSearch}`, (error, results) => {
 
 
 
+        if (error) {
+            console.log(error);
 
+        } else {
+            console.log(results[0].assignment1)
+            return res.render("teacher", {
+
+                message: {
+                    usn: usnSearch,
+                    assignment1: results[0].assignment1,
+                    assignment2: results[0].assignment2,
+                    assignment3: results[0].assignment1,
+                }
+
+            });
         }
     });
 
