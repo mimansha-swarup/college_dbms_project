@@ -15,6 +15,7 @@ exports.addTchr = (req, res) => {
 
 
     const { name, category, job, clas } = req.body;
+    console.log(req.body);
 
     mysqlConnection.query("insert into teacher_details set ?", { name: name, category: category, job: job, class: clas }, (error, results) => {
 
@@ -45,43 +46,20 @@ exports.addStud = (req, res) => {
         } else {
 
             return res.render('admin', {
-                message: "Done"
+                stumessage: "Done"
             });
         }
     });
 
 }
 
-exports.updateMarks = (req, res) => {
-
-    const { usnU, a1, a2, a3 } = req.body;
-
-
-
-
-
-
-    mysqlConnection.query(`update student set ? where usn = ${usnU}`, { assignment1: a1, assignment2: a2, assignment3: a3 }, (error, results) => {
-
-
-
-        if (error) {
-            console.log(error);
-
-        } else {
-            return res.render('teacher')
-
-        }
-    });
-
-
-}
 
 exports.search = (req, res) => {
 
     const { usnSearch } = req.body;
+    // console.log(req.body)
 
-    mysqlConnection.query(`select assignment1 ,assignment2 ,assignment3 from  student  where  usn = ${usnSearch}`, (error, results) => {
+    mysqlConnection.query(`select * from  student  where  usn = "${usnSearch}"`, (error, results) => {
 
 
 
@@ -89,17 +67,42 @@ exports.search = (req, res) => {
             console.log(error);
 
         } else {
-            console.log(results[0].assignment1)
+
             return res.render("teacher", {
 
-                message: {
-                    usn: usnSearch,
-                    assignment1: results[0].assignment1,
-                    assignment2: results[0].assignment2,
-                    assignment3: results[0].assignment1,
-                }
+                message: results[0]
 
             });
+        }
+    });
+
+
+}
+exports.updateMarks = (req, res) => {
+
+    const objValue = Object.values(req.body);
+    const usnU = objValue[0];
+    const a1 = objValue[1];
+    const a2 = objValue[2];
+    const a3 = objValue[3];
+
+
+    console.log(req.body)
+    console.log(objValue)
+    console.log(objValue[0])
+
+    mysqlConnection.query(`update student set ? where usn = "${usnU}"`, { assignment1: a1, assignment2: a2, assignment3: a3 }, (error, results) => {
+
+
+
+        if (error) {
+            console.log(error);
+
+        } else {
+            return res.render("teacher", {
+                result: "Sucessfully Updated"
+            })
+
         }
     });
 

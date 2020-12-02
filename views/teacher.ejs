@@ -44,23 +44,52 @@
 
                 <form action="/auth/search" method="POST">
                     <h3 style="margin-bottom: 2%; "> <span class="badge badge-pill badge-dark ">Search By USN</span></h3>
-                    <input type="search" name="usnSearch" id="usnSearch">
-                    <input type="submit" value="submit">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" type="text" name="usnSearch" id="usnSearch" aria-describedby="button-addon2">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary" value="submit" type="submit" id="button-addon2">Submit</button>
+                        </div>
+                    </div>
+
                     <% if(typeof message!= "undefined" && message) { %>
-                        <h4 class="alert alert-success mt-4">
-                            Previous Marks for usn
-                            <%= message.usn %> are <br> Assignment1:
-                                <%= message.assignment1 %> <br> Assignment2 :
-                                    <%= message.assignment2 %> <br> Assignment3 :
+
+                        <table class="table able-bordered">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">usn</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Assignment1</th>
+                                    <th scope="col">Assignment2</th>
+                                    <th scope="col">Assignment3</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">
+                                        <%= message.usn %>
+                                    </th>
+                                    <td>
+                                        <%= message.name %>
+                                    </td>
+                                    <td>
+                                        <%= message.assignment2 %>
+                                    </td>
+                                    <td>
+                                        <%= message.assignment2 %>
+                                    </td>
+                                    <td>
                                         <%= message.assignment3 %>
-                        </h4>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                         <% } %>
 
                 </form>
 
                 <hr class="my-4 ">
 
-                <form action="/auth/updateMarks" method=" POST " class="align-middle ">
+                <form action="/auth/updateMarks" method="POST" class="align-middle ">
 
 
 
@@ -99,7 +128,7 @@
 
                     <br>
 
-                    <input type="submit " value="Submit " class="btn btn-success rounded " style="width: 75%; margin-bottom: 1.9rem; ">
+                    <button type="submit " value="Submit " class="btn btn-success rounded " style="width: 75%; margin-bottom: 1.9rem; ">Submit</button>
 
                 </form>
 
