@@ -12,7 +12,7 @@
     <!-- <script src="../public/js/in.js" defer></script> -->
 
     <title>Assignment portal</title>
-    <link rel="icon" href="https://imgur.com/on10hE7.jpeg"  type="image/x-icon">
+    <link rel="icon" href="https://imgur.com/on10hE7.jpeg" type="image/x-icon">
     <nav class="navbar navbar-expand-xl navbar-dark bg-dark  justify-content-between" style="margin-bottom: 2%; padding: 15px;">
         <h2 class="display-4 navbar-brand">Assignment</h2>
 
@@ -20,11 +20,11 @@
             <li class="nav-item ">
                 <a class="nav-link" href="/">Home</a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/student">Student</a>
-            </li>
             <li class="nav-item active">
-                <a class="nav-link" href="/teacher">Teacher <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/student">Student <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="/teacher">Teacher </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="/admin">Admin</a>
@@ -34,7 +34,7 @@
     </nav>
 </head>
 
-<body>
+<body style="background-color: #DFFFF4;">
 
     <div class="container">
 
@@ -97,17 +97,17 @@
                             </tbody>
                         </table>
 
-                    <%} else { %>
+                        <%} else { %>
                             <h4 class="alert alert-danger mt-4">
-                               usn does not exist
+                                usn does not exist
                             </h4>
-                        <% } %>
-                   
+                            <% } %>
+
 
                 </form>
-               
 
-               
+
+
 
             </div>
 
