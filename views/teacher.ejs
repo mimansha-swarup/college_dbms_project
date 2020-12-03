@@ -89,67 +89,71 @@
 
                 </form>
 
-                <hr class="my-4 ">
-
-                <form action="/auth/updateMarks" method="POST" class="align-middle ">
-
-
-
-
-                    <h2 style="margin-bottom: 2%; "> <span class="badge badge-pill badge-dark mt-5 ">Update Assignment Marks</span></h2>
-
-                    <img style="width: 300px;" class="img-fluid mx-auto d-block mb-5" src="/img/update.svg" alt="banner" />
-
-                    <div class="input-group mb-3 ">
-                        <div class="input-group-prepend ">
-                            <span class="input-group-text  bg-dark text-white" id="inputGroup-sizing-default ">Usn</span>
-                        </div>
-                        <input type="text " on class="form-control " placeholder="USN " id="usn " name="usnU " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-default " required>
-                    </div>
-
-
-                    <div class="input-group mb-3 ">
-                        <div class="input-group-prepend ">
-                            <span class="input-group-text bg-dark text-white " id="inputGroup-sizing-default ">Assignment 1</span>
-                        </div>
-                        <input type="text " class="form-control " placeholder="  Assignment 1  " id="a1 " name="a1 " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-default ">
-                    </div>
-
-                    <div class="input-group mb-3 ">
-                        <div class="input-group-prepend ">
-                            <span class="input-group-text bg-dark text-white " id="inputGroup-sizing-default ">Assignment 2</span>
-                        </div>
-                        <input type="text " class="form-control " placeholder="Assignment 2 " id="a2 " name="a2 " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-default ">
-                    </div>
-
-                    <div class="input-group mb-3 ">
-                        <div class="input-group-prepend ">
-                            <span class="input-group-text bg-dark text-white " id="inputGroup-sizing-default ">Assignment 3</span>
-                        </div>
-                        <input type="text " class="form-control " placeholder="Assignment 3 " id="a3 " name="a3 " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-default ">
-                    </div>
-
-
-                    <br>
-
-                    <button type="submit " value="Submit " class="btn btn-success rounded " style="width: 75%; margin-bottom: 1.9rem; ">Submit</button>
-
-                </form>
-                <% if(typeof result!= "undefined" && result) { %>
-                    <h4 class="alert alert-success">
-                        <%= result %>
-                    </h4>
-
+                <%   if(typeof isErrorUsn!= "undefined" && isErrorUsn ) { %>
+                    <img style="width: 400px;" class="img-fluid mx-auto d-block mb-5" src="/img/error404.svg" alt="error 404" />
                     <% } %>
 
-                        <form action="/auth/remove" method="POST">
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" type="text" name="usnSearch" id="usnSearch" aria-describedby="button-addon2">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" value="Delete Record" type="submit" id="button-addon2">Delete Record</button>
+                        <hr class="my-4 ">
+
+                        <form action="/auth/updateMarks" method="POST" class="align-middle ">
+
+
+
+
+                            <h2 style="margin-bottom: 2%; "> <span class="badge badge-pill badge-dark mt-5 ">Update Assignment Marks</span></h2>
+
+                            <img style="width: 300px;" class="img-fluid mx-auto d-block mb-5" src="/img/update.svg" alt="banner" />
+
+                            <div class="input-group mb-3 ">
+                                <div class="input-group-prepend ">
+                                    <span class="input-group-text  bg-dark text-white" id="inputGroup-sizing-default ">Usn</span>
                                 </div>
+                                <input type="text " on class="form-control " placeholder="USN " id="usn " name="usnU " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-default " required>
                             </div>
+
+
+                            <div class="input-group mb-3 ">
+                                <div class="input-group-prepend ">
+                                    <span class="input-group-text bg-dark text-white " id="inputGroup-sizing-default ">Assignment 1</span>
+                                </div>
+                                <input type="text " class="form-control " placeholder="  Assignment 1  " id="a1 " name="a1 " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-default ">
+                            </div>
+
+                            <div class="input-group mb-3 ">
+                                <div class="input-group-prepend ">
+                                    <span class="input-group-text bg-dark text-white " id="inputGroup-sizing-default ">Assignment 2</span>
+                                </div>
+                                <input type="text " class="form-control " placeholder="Assignment 2 " id="a2 " name="a2 " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-default ">
+                            </div>
+
+                            <div class="input-group mb-3 ">
+                                <div class="input-group-prepend ">
+                                    <span class="input-group-text bg-dark text-white " id="inputGroup-sizing-default ">Assignment 3</span>
+                                </div>
+                                <input type="text " class="form-control " placeholder="Assignment 3 " id="a3 " name="a3 " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-default ">
+                            </div>
+
+
+                            <br>
+
+                            <button type="submit " value="Submit " class="btn btn-success rounded " style="width: 75%; margin-bottom: 1.9rem; ">Submit</button>
+
                         </form>
+                        <% if(typeof result!= "undefined" && result) { %>
+                            <h4 class="alert alert-success">
+                                <%= result %>
+                            </h4>
+
+                            <% } %>
+
+                                <form action="/auth/remove" method="POST">
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" type="text" name="usnSearch" id="usnSearch" aria-describedby="button-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-secondary" value="Delete Record" type="submit" id="button-addon2">Delete Record</button>
+                                        </div>
+                                    </div>
+                                </form>
 
 
             </div>
