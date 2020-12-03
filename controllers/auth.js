@@ -69,13 +69,22 @@ exports.search = (req, res) => {
         if (error) {
             console.log(error);
 
-        } else {
+        } else if (results[0]) {
 
             return res.render("teacher", {
 
                 message: results[0]
 
+
             });
+        } else {
+            return res.render("teacher", {
+
+                isErrorUsn: true
+
+
+            });
+
         }
     });
 
@@ -172,11 +181,19 @@ exports.getDetails = (req, res) => {
         if (error) {
             console.log(error);
 
-        } else {
+        } else if (results[0]) {
 
             return res.render("student", {
 
                 message: results[0]
+
+            });
+
+        } else {
+
+            return res.render("student", {
+
+                isError: true
 
             });
         }
@@ -200,7 +217,7 @@ exports.remove = (req, res) => {
             return res.render("teacher", {
 
                 message: "Record Deleted"
-            });
+            }, { async: true });
         }
 
     });
