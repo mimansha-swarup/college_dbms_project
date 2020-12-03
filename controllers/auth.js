@@ -190,6 +190,8 @@ exports.getDetails = (req, res) => {
 exports.remove = (req, res) => {
     const { usnSearch } = req.body;
 
+    mysqlConnection.query(`delete from assignment_link where usn="${usnSearch}"`);
+    mysqlConnection.query(`delete from assignment_marks where usn="${usnSearch}"`);
     mysqlConnection.query(`delete from student where usn="${usnSearch}"`, (error, results) => {
 
         if (error) {
