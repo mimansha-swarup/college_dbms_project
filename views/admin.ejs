@@ -34,11 +34,13 @@
     </nav>
 </head>
 
-<body>
+<body style="background-color: #DFFFF4;">
 
 
 
     <div class="container">
+        <h4 class="display-4 text-center" style="margin-bottom: 3%;">Add Data To Database</h4>
+        <img class="img-fluid mx-auto d-block my-4" src="/img/Add_user.svg" alt="add" />
         <div class="row">
 
 
@@ -46,8 +48,8 @@
 
 
                 <div class="card ">
-                    <div class="card-header">
-                        Add New Faculty
+                    <div class="card-header bg-dark">
+                        <p class="h5 text-center text-white">Add New Faculty</p>
                     </div>
                     <div class="card-body">
 
@@ -61,14 +63,14 @@
                             <hr class="my-4">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-user"></i> </span>
+                                    <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-default"><i class="fas fa-user"></i> </span>
                                 </div>
                                 <input type="text" class="form-control" placeholder="Name" name="name" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
                             </div>
 
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-user-tie"></i></span>
+                                    <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-default"><i class="fas fa-user-tie"></i></span>
                                 </div>
                                 <select name="category" class="form-control" required>
                             
@@ -79,14 +81,14 @@
 
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-journal-whills"></i></span>
+                                    <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-default"><i class="fas fa-journal-whills"></i></span>
                                 </div>
                                 <input type="text" class="form-control" placeholder="Job eg:Prof, Ast.Prof" name="job" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
                             </div>
 
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-book-reader"></i></span>
+                                    <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-default"><i class="fas fa-book-reader"></i></span>
                                 </div>
                                 <input type="text" class="form-control" placeholder="Class" name="clas" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
                             </div>
@@ -116,9 +118,10 @@
             <div class="container mt-4 col">
 
                 <div class="card">
-                    <div class="card-header">
-                        Student Register Form
+                    <div class="card-header bg-dark">
+                        <p class="h5 text-center text-white">Add New Student</p>
                     </div>
+
                     <div class="card-body">
 
                         <form action="/auth/addStud" method="POST" class="align-middle">
@@ -131,7 +134,7 @@
                             <hr class="my-4">
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-user"></i></span>
+                                    <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-default"><i class="fas fa-user"></i></span>
                                 </div>
                                 <input type="text" class="form-control" name="nameS" placeholder="Name" id="name" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
                             </div>
@@ -140,7 +143,7 @@
 
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-list-ol"></i></span>
+                                    <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-default"><i class="fas fa-list-ol"></i></span>
                                 </div>
                                 <input type="text" class="form-control" name="usnS" placeholder="Usn" id="usn" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
                             </div>
@@ -148,7 +151,7 @@
 
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-code-branch"></i></span>
+                                    <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-default"><i class="fas fa-code-branch"></i></span>
                                 </div>
                                 <input type="text" class="form-control" name="branchS" placeholder="Branch" id="branch" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
                             </div>
@@ -156,14 +159,14 @@
 
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-archway"></i></span>
+                                    <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-default"><i class="fas fa-archway"></i></span>
                                 </div>
                                 <input type="text" class="form-control" name="semS" placeholder="Semester" id="sem" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
                             </div>
 
                             <div class="input-group mb-3">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text" id="inputGroup-sizing-default"><i class="fas fa-book-reader"></i></span>
+                                    <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-default"><i class="fas fa-book-reader"></i></span>
                                 </div>
                                 <input type="text" class="form-control" name="classS" placeholder="Class" id="class" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
                             </div>

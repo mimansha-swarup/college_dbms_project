@@ -29,6 +29,7 @@ app.set('view engine', 'ejs');
 app.use(express.static("public"));
 
 
+
 mysqlConnection.connect((err) => {
     if (err) {
         console.log(err)
