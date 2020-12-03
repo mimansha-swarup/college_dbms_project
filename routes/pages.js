@@ -18,6 +18,12 @@ router.get('/teacher', (req, res) => {
     res.render("teacher");
 
 });
+router.get('/student', (req, res) => {
+
+    res.render("student");
+
+});
+
 
 
 
