@@ -12,6 +12,7 @@
     <!-- <script src="/js/in.js" defer></script> -->
 
     <title>Assignment portal</title>
+    <link rel="icon" href="https://imgur.com/on10hE7.jpeg" type="image/x-icon">
     <nav class="navbar navbar-expand-xl navbar-dark bg-dark  justify-content-between" style="margin-bottom: 2%; padding: 15px;">
         <h2 class="display-4 navbar-brand">Assignment</h2>
 
@@ -34,130 +35,165 @@
 </head>
 
 <body style="background-color: #DFFFF4;">
-
-    <div class="container-sm">
-
-
-
-        <div class="container-sm" style="width: 720px;">
-            <div class="jumbotron" style="border: 1px solid black;">
-                <h4 class="display-4 text-center" style="margin-bottom: 3%;">Update Student Marks</h4>
-
-                <form action="/auth/search" method="POST">
-                    <h2 style="margin-bottom: 2%; "> <span class="badge badge-pill badge-dark mt-4">Search By USN</span></h2>
-                    <img style="width: 300px;" class="img-fluid mx-auto d-block mb-5" src="/img/search.svg" alt="search" />
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" type="text" name="usnSearch" id="usnSearch" aria-describedby="button-addon2">
-                        <div class="input-group-append">
-                            <button class="btn btn-outline-dark bg-secondary text-white" value="submit" type="submit" id="search-btn">Search</button>
-                        </div>
-                    </div>
-
-                    <% if(typeof message!= "undefined" && message) { %>
-
-                        <table class="table able-bordered my-4 mt-5">
-                            <thead class="thead-dark">
-                                <tr>
-                                    <th scope="col">usn</th>
-                                    <th scope="col">Name</th>
-                                    <th scope="col">Assignment1</th>
-                                    <th scope="col">Assignment2</th>
-                                    <th scope="col">Assignment3</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th scope="row">
-                                        <%= message.usn %>
-                                    </th>
-                                    <td>
-                                        <%= message.name %>
-                                    </td>
-                                    <td>
-                                        <%= message.assignment1 %>
-                                    </td>
-                                    <td>
-                                        <%= message.assignment2 %>
-                                    </td>
-                                    <td>
-                                        <%= message.assignment3 %>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <% } %>
-
-                </form>
-
-                <hr class="my-4 ">
-
-                <form action="/auth/updateMarks" method="POST" class="align-middle ">
-
-
-
-
-                    <h2 style="margin-bottom: 2%; "> <span class="badge badge-pill badge-dark mt-5 ">Update Assignment Marks</span></h2>
-
-                    <img style="width: 300px;" class="img-fluid mx-auto d-block mb-5" src="/img/update.svg" alt="banner" />
-
-                    <div class="input-group mb-3 ">
-                        <div class="input-group-prepend ">
-                            <span class="input-group-text  bg-dark text-white" id="inputGroup-sizing-default ">Usn</span>
-                        </div>
-                        <input type="text " on class="form-control " placeholder="USN " id="usn " name="usnU " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-default " required>
-                    </div>
-
-
-                    <div class="input-group mb-3 ">
-                        <div class="input-group-prepend ">
-                            <span class="input-group-text bg-dark text-white " id="inputGroup-sizing-default ">Assignment 1</span>
-                        </div>
-                        <input type="text " class="form-control " placeholder="  Assignment 1  " id="a1 " name="a1 " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-default ">
-                    </div>
-
-                    <div class="input-group mb-3 ">
-                        <div class="input-group-prepend ">
-                            <span class="input-group-text bg-dark text-white " id="inputGroup-sizing-default ">Assignment 2</span>
-                        </div>
-                        <input type="text " class="form-control " placeholder="Assignment 2 " id="a2 " name="a2 " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-default ">
-                    </div>
-
-                    <div class="input-group mb-3 ">
-                        <div class="input-group-prepend ">
-                            <span class="input-group-text bg-dark text-white " id="inputGroup-sizing-default ">Assignment 3</span>
-                        </div>
-                        <input type="text " class="form-control " placeholder="Assignment 3 " id="a3 " name="a3 " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-default ">
-                    </div>
-
-
-                    <br>
-
-                    <button type="submit " value="Submit " class="btn btn-success rounded " style="width: 75%; margin-bottom: 1.9rem; ">Submit</button>
-
-                </form>
-                <% if(typeof result!= "undefined" && result) { %>
-                    <h4 class="alert alert-success">
-                        <%= result %>
-                    </h4>
-
-                    <% } %>
-
-                        <form action="/auth/remove" method="POST">
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control" type="text" name="usnSearch" id="usnSearch" aria-describedby="button-addon2">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" value="Delete Record" type="submit" id="button-addon2">Delete Record</button>
-                                </div>
-                            </div>
-                        </form>
-
-
-            </div>
-
-        </div>
-
+    <h1 class="display-1 text-center">Teacher Pannel</h1>
+    <div class="col-3 mx-auto ">
+        <a class="mx-2 text-primary " style="font-size: 1.1rem;" href="#searchMarksByUsn ">Search usn</a>
+        <a class="mx-2 text-primary " style="font-size: 1.1rem;" href="#updateMarks">Update marks</a>
+        <a class="mx-2 text-primary " style="font-size: 1.1rem;" href="#deleteByUsn ">Delete Usn</a>
 
     </div>
+
+
+    <%  if(typeof isError!= "undefined" && isError ) { %>
+        <img style="width: 400px;" class="img-fluid mx-auto d-block my-5 mx-5" src="/img/error404.svg" alt="error 404" />
+        <% } %>
+            <% if(typeof isSuccess!= "undefined" && isSuccess) { %>
+                <h4 class="alert alert-success text-center  my-5">
+                    <%= isSuccess %>
+                </h4>
+
+                <% } %>
+
+                    <img class="img-fluid mx-auto d-block mb-5" src="/img/teacher.svg" alt="teacher" />
+                    <div class="container-sm">
+                        <div class="container-sm" style="width: 720px;">
+                            <div class="jumbotron" style="border: 1px solid black;">
+
+                                <h4 id="searchMarksByUsn" class="display-4 text-center" style="margin-bottom: 3%;">Search Student Marks</h4>
+
+
+                                <form action="/auth/search" method="POST">
+                                    <h2 style="margin-bottom: 2%; "> <span class="badge badge-pill badge-dark mt-4">Search By USN</span></h2>
+                                    <img style="width: 300px;" class="img-fluid mx-auto d-block mb-5" src="/img/search.svg" alt="search" />
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" type="text" name="usnSearch" id="usnSearch" aria-describedby="button-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-dark bg-secondary text-white" value="submit" type="submit" id="search-btn">Search</button>
+                                        </div>
+                                    </div>
+
+                                    <% if(typeof message!= "undefined" && message) { %>
+
+                                        <table class="table able-bordered my-4 mt-5">
+                                            <thead class="thead-dark">
+                                                <tr>
+                                                    <th scope="col">usn</th>
+                                                    <th scope="col">Name</th>
+                                                    <th scope="col">Assignment1</th>
+                                                    <th scope="col">Assignment2</th>
+                                                    <th scope="col">Assignment3</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <th scope="row">
+                                                        <%= message.usn %>
+                                                    </th>
+                                                    <td>
+                                                        <%= message.name %>
+                                                    </td>
+                                                    <td>
+                                                        <%= message.assignment1 %>
+                                                    </td>
+                                                    <td>
+                                                        <%= message.assignment2 %>
+                                                    </td>
+                                                    <td>
+                                                        <%= message.assignment3 %>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <% } %>
+
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr style="width: 720px;" class="my-4 ">
+                    <!-- Update marks -->
+                    <div class="container-sm">
+                        <div class="container-sm" style="width: 720px;">
+                            <div class="jumbotron" style="border: 1px solid black;">
+                                <h4 id="updateMarks" class="display-4 text-center" style="margin-bottom: 3%;">Update Student Marks</h4>
+
+                                <form action="/auth/updateMarks" method="POST" class="align-middle ">
+
+
+
+
+                                    <h2 style="margin-bottom: 2%; "> <span class="badge badge-pill badge-dark mt-5 ">Update Assignment Marks</span></h2>
+
+                                    <img style="width: 300px;" class="img-fluid mx-auto d-block mb-5" src="/img/update.svg" alt="banner" />
+
+                                    <div class="input-group mb-3 ">
+                                        <div class="input-group-prepend ">
+                                            <span class="input-group-text  bg-dark text-white" id="inputGroup-sizing-default ">Usn</span>
+                                        </div>
+                                        <input type=" text " on class="form-control " placeholder="USN " id="usn " name="usnU " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-default " required>
+                                    </div>
+
+
+                                    <div class="input-group mb-3 ">
+                                        <div class="input-group-prepend ">
+                                            <span class="input-group-text bg-dark text-white " id="inputGroup-sizing-default ">Assignment 1</span>
+                                        </div>
+                                        <input type="number" min="0" max="10" class="form-control " placeholder="  Assignment 1  " id="a1 " name="a1 " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-default ">
+                                    </div>
+
+                                    <div class="input-group mb-3 ">
+                                        <div class="input-group-prepend ">
+                                            <span class="input-group-text bg-dark text-white " id="inputGroup-sizing-default ">Assignment 2</span>
+                                        </div>
+                                        <input type="number" min="0" max="10" class="form-control " placeholder="Assignment 2 " id="a2 " name="a2 " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-default ">
+                                    </div>
+
+                                    <div class="input-group mb-3 ">
+                                        <div class="input-group-prepend ">
+                                            <span class="input-group-text bg-dark text-white " id="inputGroup-sizing-default ">Assignment 3</span>
+                                        </div>
+                                        <input type="number" min="0" max="10" class="form-control " placeholder="Assignment 3 " id="a3 " name="a3 " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-default ">
+                                    </div>
+
+
+                                    <br>
+
+                                    <button type=" submit " value="Submit " class="btn btn-success rounded " style="width: 75%; margin-bottom: 1.9rem; ">Submit</button>
+
+                                </form>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <hr style="width: 720px; " class="my-4 ">
+
+                    <div class="container-sm ">
+                        <div class="container-sm " style="width: 720px; ">
+                            <div class="jumbotron " style="border: 1px solid black; ">
+                                <h4 class="display-4 text-center " id="deleteByUsn " style="margin-bottom: 3%; ">Delete Student From Database</h4>
+                                <h2 style="margin-bottom: 2%; "> <span class="badge badge-pill badge-dark mt-4 ">Delete By USN</span></h2>
+                                <img style="width: 300px; " class="img-fluid mx-auto d-block mb-5 " src="/img/throw.svg " alt="search " />
+
+                                <form action="/auth/remove " method="POST ">
+                                    <div class="input-group mb-3 ">
+                                        <input type="text " class="form-control " type="text " name="usnSearch " id="usnSearch " aria-describedby="button-addon2 ">
+                                        <div class="input-group-append ">
+                                            <button class="btn btn-outline-dark bg-danger text-white " value="Delete Record " type="submit " id="button-addon2 ">Delete Record</button>
+                                        </div>
+                                    </div>
+                                </form>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
 
 </body>
 

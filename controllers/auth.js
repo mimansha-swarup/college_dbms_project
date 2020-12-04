@@ -9,13 +9,12 @@ var mysqlConnection = mysql.createConnection({
     database: process.env.DATABASE
 });
 
-
+//============================================================ADMIN=======================================================================
 
 exports.addTchr = (req, res) => {
 
 
     const { name, category, job, clas } = req.body;
-    console.log(req.body);
 
     mysqlConnection.query("insert into teacher_details set ?", { name: name, category: category, job: job, class: clas }, (error, results) => {
 
@@ -57,6 +56,9 @@ exports.addStud = (req, res) => {
 }
 
 
+//============================================================TEACHER=======================================================================
+
+
 exports.search = (req, res) => {
 
     const { usnSearch } = req.body;
@@ -69,13 +71,22 @@ exports.search = (req, res) => {
         if (error) {
             console.log(error);
 
-        } else {
+        } else if (results[0]) {
 
             return res.render("teacher", {
 
                 message: results[0]
 
+
             });
+        } else {
+            return res.render("teacher", {
+
+                isError: true
+
+
+            });
+
         }
     });
 
@@ -90,9 +101,7 @@ exports.updateMarks = (req, res) => {
     const a3 = objValue[3];
 
 
-    // console.log(req.body)
-    // console.log(objValue)
-    // console.log(objValue[0])
+
     if (a1 && a2 && a3) {
         mysqlConnection.query("insert into log set datetime = now(), ?", { usn: usnU, change1: a1, change2: a2, change3: a3 });
         mysqlConnection.query(`update assignment_marks set ? where usn = "${usnU}"`, { assignment1: a1, assignment2: a2, assignment3: a3 }, (error, results) => {
@@ -100,16 +109,22 @@ exports.updateMarks = (req, res) => {
             if (error) {
                 console.log(error);
 
-            } else {
+            } else if (results.affectedRows) {
                 return res.render("teacher", {
-                    result: "Sucessfully Updated"
-                })
+                    isSuccess: "Sucessfully Updated"
+                });
 
+            } else {
+
+                return res.render("teacher", {
+                    isError: true
+                });
             }
         });
 
 
     } else {
+
         if (a1) {
             mysqlConnection.query("insert into log set datetime = now(), ?", { usn: usnU, change1: a1 });
             mysqlConnection.query(`update assignment_marks set ? where usn = "${usnU}"`, { assignment1: a1 }, (error, results) => {
@@ -117,72 +132,68 @@ exports.updateMarks = (req, res) => {
                 if (error) {
                     console.log(error);
 
-                } else {
+                } else if (results.affectedRows) {
                     return res.render("teacher", {
-                        result: "Sucessfully Updated"
-                    })
+                        isSuccess: "Sucessfully Updated"
+                    });
 
+                } else {
+
+                    return res.render("teacher", {
+                        isError: true
+                    });
                 }
             });
 
-        }
-        if (a2) {
+        } else if (a2) {
             mysqlConnection.query("insert into log set datetime = now(), ?", { usn: usnU, change2: a2 });
             mysqlConnection.query(`update assignment_marks set ? where usn = "${usnU}"`, { assignment2: a2 }, (error, results) => {
 
                 if (error) {
                     console.log(error);
 
-                } else {
+                } else if (results.affectedRows) {
                     return res.render("teacher", {
-                        result: "Sucessfully Updated"
-                    })
+                        isSuccess: "Sucessfully Updated"
+                    });
 
+                } else {
+
+                    return res.render("teacher", {
+                        isError: true
+                    });
                 }
+
+
             });
 
-        }
-        if (a3) {
+        } else if (a3) {
             mysqlConnection.query("insert into log set datetime = now(), ?", { usn: usnU, change3: a3 });
             mysqlConnection.query(`update assignment_marks set ? where usn = "${usnU}"`, { assignment3: a3 }, (error, results) => {
-
                 if (error) {
                     console.log(error);
 
-                } else {
+                } else if (results.affectedRows) {
                     return res.render("teacher", {
-                        result: "Sucessfully Updated"
-                    })
+                        isSuccess: "Sucessfully Updated"
+                    });
 
+                } else {
+
+                    return res.render("teacher", {
+                        isError: "Sucessfully Updated"
+                    });
                 }
             });
-        }
-    }
-
-}
-
-exports.getDetails = (req, res) => {
-
-    const { usnSearch } = req.body;
-
-    mysqlConnection.query(`select * from  student  where  usn = "${usnSearch}"`, (error, results) => {
-
-
-
-        if (error) {
-            console.log(error);
-
         } else {
 
-            return res.render("student", {
 
-                message: results[0]
-
+            return res.render("teacher", {
+                isError: true
             });
         }
 
-
-    });
+    }
 
 
 }
@@ -196,12 +207,57 @@ exports.remove = (req, res) => {
 
         if (error) {
             console.log(error);
+        } else if (results.affectedRows) {
+
+            return res.render("teacher", {
+                isSuccess: "Record Deleted"
+            });
+
         } else {
             return res.render("teacher", {
 
-                message: "Record Deleted"
+                isError: true
             });
         }
 
     });
+}
+
+//===============================================================STUDENTS====================================================================
+
+
+
+
+exports.getDetails = (req, res) => {
+
+    const { usnSearch } = req.body;
+
+    mysqlConnection.query(`select * from  student  where  usn = "${usnSearch}"`, (error, results) => {
+
+
+
+        if (error) {
+            console.log(error);
+
+        } else if (results[0]) {
+
+            return res.render("student", {
+
+                message: results[0]
+
+            });
+
+        } else {
+
+            return res.render("student", {
+
+                isError: true
+
+            });
+        }
+
+
+    });
+
+
 }
