@@ -35,23 +35,38 @@ exports.addTchr = (req, res) => {
 exports.addStud = (req, res) => {
     const { nameS, usnS, branchS, semS, classS } = req.body;
 
-
-    mysqlConnection.query("insert into assignment_marks set ?", { usn: usnS, name: nameS }, );
-    mysqlConnection.query("insert into assignment_link set ?", { usn: usnS, name: nameS }, );
-    mysqlConnection.query("insert into student set ?", { name: nameS, usn: usnS, branch: branchS, semester: semS, class: classS }, (error, results) => {
-
-
-
-        if (error) {
-            console.log(error);
-
-        } else {
+    mysqlConnection.query(`select exists(select usn from student where usn="${usnS}");`, (error, results) => {
+        const isUsnExist = Object.values(results[0]);
+        if (isUsnExist[0]) {
 
             return res.render('admin', {
-                stumessage: "Done"
+                stumessage: "USN Already Exist"
             });
+        } else {
+            mysqlConnection.query("insert into assignment_marks set ?", { usn: usnS, name: nameS }, );
+            mysqlConnection.query("insert into assignment_link set ?", { usn: usnS, name: nameS }, );
+            mysqlConnection.query("insert into student set ?", { name: nameS, usn: usnS, branch: branchS, semester: semS, class: classS }, (error, results) => {
+
+
+
+                if (error) {
+                    console.log(error);
+
+                } else {
+
+                    return res.render('admin', {
+                        stumessage: "Done"
+                    });
+                }
+            });
+
+
         }
+
     });
+
+
+
 
 }
 

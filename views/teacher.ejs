@@ -65,7 +65,7 @@
                                     <h2 style="margin-bottom: 2%; "> <span class="badge badge-pill badge-dark mt-4">Search By USN</span></h2>
                                     <img style="width: 300px;" class="img-fluid mx-auto d-block mb-5" src="/img/search.svg" alt="search" />
                                     <div class="input-group mb-3">
-                                        <input type="text" class="form-control" type="text" name="usnSearch" id="usnSearch" aria-describedby="button-addon2">
+                                        <input type="text" pattern="1ew\d\d[a-z][a-z]\d\d\d" title="it should start with 1ew and year then branc then roll number" class="form-control" name="usnSearch" id="usnSearch" aria-describedby="button-addon2">
                                         <div class="input-group-append">
                                             <button class="btn btn-outline-dark bg-secondary text-white" value="submit" type="submit" id="search-btn">Search</button>
                                         </div>
@@ -131,7 +131,8 @@
                                         <div class="input-group-prepend ">
                                             <span class="input-group-text  bg-dark text-white" id="inputGroup-sizing-default ">Usn</span>
                                         </div>
-                                        <input type=" text " on class="form-control " placeholder="USN " id="usn " name="usnU " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-default " required>
+                                        <input type=" text " pattern="1ew\d\d[a-z][a-z]\d\d\d" title="it should start with 1ew and year then branc then roll number" class="form-control " placeholder="USN " id="usn " name="usnU " aria-label="Sizing example input " aria-describedby="inputGroup-sizing-default "
+                                            required>
                                     </div>
 
 
@@ -180,7 +181,7 @@
 
                                 <form action="/auth/remove " method="POST ">
                                     <div class="input-group mb-3 ">
-                                        <input type="text " class="form-control " type="text " name="usnSearch " id="usnSearch " aria-describedby="button-addon2 ">
+                                        <input type="text " pattern="1ew\d\d[a-z][a-z]\d\d\d" title="it should start with 1ew and year then branc then roll number" class="form-control " type="text " name="usnSearch " id="usnSearch " aria-describedby="button-addon2 ">
                                         <div class="input-group-append ">
                                             <button class="btn btn-outline-dark bg-danger text-white " value="Delete Record " type="submit " id="button-addon2 ">Delete Record</button>
                                         </div>
