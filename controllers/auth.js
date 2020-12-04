@@ -251,7 +251,10 @@ exports.getDetails = (req, res) => {
 
     const { usnSearch } = req.body;
 
-    mysqlConnection.query(`select * from student  where  usn = "${usnSearch}"`, (error, results) => {
+    mysqlConnection.query(`select *
+    from  student 
+    inner join assignment_link
+    on student.usn=assignment_link.usn where student.usn="${usnSearch}"`, (error, results) => {
 
 
 
@@ -278,7 +281,6 @@ exports.getDetails = (req, res) => {
 
     });
 
-
 }
 
 exports.addLink = (req,res)=>{
@@ -296,7 +298,7 @@ exports.addLink = (req,res)=>{
         }
         else{
             return res.render("student",{
-                message: "Submitted Successfully"
+                isSuccess: "Submitted Successfully"
             });
         }
     });
@@ -310,7 +312,7 @@ exports.addLink = (req,res)=>{
             }
             else{
                 return res.render("student",{
-                    message: "Submitted Successfully"
+                    isSuccess: "Submitted Successfully"
                 });
             }
         });
@@ -324,12 +326,22 @@ exports.addLink = (req,res)=>{
                 }
                 else{
                     return res.render("student",{
-                        message: "Submitted Successfully"
+                        isSuccess: "Submitted Successfully"
                     });
                 }
             });
         
             }
+
+        else {
+
+                return res.render("student", {
+    
+                    isError: true
+    
+                });
+            }
+    
             
     
   
