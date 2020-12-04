@@ -10,5 +10,6 @@ router.post('/updateMarks', authController.updateMarks);
 router.post('/search', authController.search);
 router.post('/getDetails', authController.getDetails);
 router.post('/remove', authController.remove);
+router.post('/addLink', authController.addLink);
 
 module.exports = router;
