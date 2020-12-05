@@ -195,12 +195,57 @@
         </div>
     </div>
 
+    <hr style="width: 720px;" class="my-4 ">
+
+    <div class="container-sm">
+        <div class="container-sm" style="width: 720px;">
+            <div class="jumbotron" style="border: 1px solid black;">
+                <h4 id="updateMarks" class="display-4 text-center" style="margin-bottom: 3%;">Check logs</h4>
+                <img style="width: 300px;" class="img-fluid mx-auto d-block mb-5" src="/img/log.svg" alt="logs" />
+                <form action="/auth/getLog" method="POST">
+                    <button type=" submit " value="Submit " class="btn btn-success rounded mx-auto " style="width: 100%; margin-bottom: 1.9rem; ">Submit</button>
+                </form>
+
+                <% if(typeof logTable!= "undefined" && logTable) { %>
+                    <h4>Log of marks update</h4>
+                    <table class="table able-bordered">
+                        <thead class="thead-dark">
+                            <tr>
+                                <th scope="col">usn</th>
+                                <th scope="col">datetime</th>
+                                <th scope="col">change1</th>
+                                <th scope="col">change2</th>
+                                <th scope="col">change3</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <%= logTable.usn %>
+                                </th>
+                                <td>
+                                    <%= logTable.datetime %>
+                                </td>
+                                <td>
+                                    <%= logTable.change1 %>
+                                </td>
+                                <td>
+                                    <%= logTable.change2 %>
+                                </td>
+                                <td>
+                                    <%= logTable.change3 %>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <% } %>
 
 
-
-
-
-
+            </div>
+        </div>
+    </div>
 
 
 </body>
