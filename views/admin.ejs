@@ -137,7 +137,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-default"><i class="fas fa-user"></i></span>
                                 </div>
-                                <input type="text" class="form-control" name="nameS" placeholder="Name" id="name" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                                <input type="text" pattern="[^+*@$&^-_`~()]\D+" title="Enter valid Name" class="form-control" name="nameS" placeholder="Name" id="name" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
                             </div>
 
 
@@ -146,7 +146,8 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-default"><i class="fas fa-list-ol"></i></span>
                                 </div>
-                                <input type="text" class="form-control" name="usnS" placeholder="Usn" id="usn" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                                <input type="text" pattern="1ew\d\d[a-z][a-z]\d\d\d" title="it should start with 1ew and year then branc then roll number" class="form-control" name="usnS" placeholder="Usn" id="usn" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default"
+                                    required>
                             </div>
 
 
@@ -162,7 +163,7 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text bg-dark text-white" id="inputGroup-sizing-default"><i class="fas fa-archway"></i></span>
                                 </div>
-                                <input type="text" class="form-control" name="semS" placeholder="Semester" id="sem" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
+                                <input type="text" pattern="\d[stnr][thd]" title="enter valid sem eg:1st" class="form-control" name="semS" placeholder="Semester" id="sem" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" required>
                             </div>
 
                             <div class="input-group mb-3">
