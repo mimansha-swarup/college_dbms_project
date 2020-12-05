@@ -223,14 +223,19 @@ exports.updateMarks = (req, res) => {
 
 exports.remove = (req, res) => {
     const { usnSearch } = req.body;
+    console.log(req.body)
+    console.log(usnSearch)
 
-    mysqlConnection.query(`delete from assignment_link where usn="${usnSearch}"`);
-    mysqlConnection.query(`delete from assignment_marks where usn="${usnSearch}"`);
+
     mysqlConnection.query(`delete from student where usn="${usnSearch}"`, (error, results) => {
 
+        console.log(results);
         if (error) {
-            console.log(error);
+            console.log(results);
+
         } else if (results.affectedRows) {
+            mysqlConnection.query(`delete from assignment_link where usn="${usnSearch}"`);
+            mysqlConnection.query(`delete from assignment_marks where usn="${usnSearch}"`);
 
             return res.render("teacher", {
                 isSuccess: "Record Deleted"
@@ -340,6 +345,51 @@ exports.addLink = (req, res) => {
     }
 
 
+
+
+}
+
+//===============================================================HOMEPAGE====================================================================
+
+
+exports.viewDetails = (req, res) => {
+
+    const { section } = req.body;
+
+    mysqlConnection.query(`select * from student where class="${ section }" order by semester`, (error, results) => {
+        if (error) {
+            console.log(error);
+        } else if (results[0]) {
+            return res.render("homepage", {
+                data: results
+            });
+        } else {
+            return res.render("homepage", {
+                isError: "data not found"
+            });
+        }
+
+    });
+}
+
+exports.teacherDetails = (req, res) => {
+
+    const { section } = req.body;
+
+    mysqlConnection.query(`select * from teacher_details where class="${ section }" order by class`, (error, results) => {
+        if (error) {
+            console.log(error);
+        } else if (results[0]) {
+            return res.render("homepage", {
+                details: results
+            });
+        } else {
+            return res.render("homepage", {
+                isError: "data not found"
+            });
+        }
+
+    });
 
 
 }
