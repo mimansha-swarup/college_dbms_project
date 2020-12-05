@@ -72,7 +72,7 @@ exports.addStud = (req, res) => {
 exports.getLog = (req, res) => {
     mysqlConnection.query("select * from log", (error, results) => {
         return res.render("admin", {
-            logTable: results[0]
+            logTable: results
         });
 
     });

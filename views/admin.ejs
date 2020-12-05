@@ -208,8 +208,10 @@
 
                 <% if(typeof logTable!= "undefined" && logTable) { %>
                     <h4>Log of marks update</h4>
+
                     <table class="table able-bordered">
                         <thead class="thead-dark">
+
                             <tr>
                                 <th scope="col">usn</th>
                                 <th scope="col">datetime</th>
@@ -220,23 +222,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <th scope="row">
-                                    <%= logTable.usn %>
-                                </th>
-                                <td>
-                                    <%= logTable.datetime %>
-                                </td>
-                                <td>
-                                    <%= logTable.change1 %>
-                                </td>
-                                <td>
-                                    <%= logTable.change2 %>
-                                </td>
-                                <td>
-                                    <%= logTable.change3 %>
-                                </td>
-                            </tr>
+                            <% logTable.forEach(function(logTable){ %>
+                                <tr>
+                                    <th scope="row">
+                                        <%= logTable.usn %>
+                                    </th>
+                                    <td>
+                                        <%= logTable.datetime %>
+                                    </td>
+                                    <td>
+                                        <%= logTable.change1 %>
+                                    </td>
+                                    <td>
+                                        <%= logTable.change2 %>
+                                    </td>
+                                    <td>
+                                        <%= logTable.change3 %>
+                                    </td>
+                                </tr>
+                                <% }); %>
                         </tbody>
                     </table>
 
