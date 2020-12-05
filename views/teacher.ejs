@@ -12,6 +12,7 @@
     <!-- <script src="/js/in.js" defer></script> -->
 
     <title>Assignment portal</title>
+    <link rel="icon" href="https://imgur.com/on10hE7.jpeg" type="image/x-icon">
     <nav class="navbar navbar-expand-xl navbar-dark bg-dark  justify-content-between" style="margin-bottom: 2%; padding: 15px;">
         <h2 class="display-4 navbar-brand">Assignment</h2>
 
@@ -50,7 +51,6 @@
                 <h4 class="alert alert-success text-center  my-5">
                     <%= isSuccess %>
                 </h4>
-
                 <% } %>
 
                     <img class="img-fluid mx-auto d-block mb-5" src="/img/teacher.svg" alt="teacher" />
@@ -72,7 +72,6 @@
                                     </div>
 
                                     <% if(typeof message!= "undefined" && message) { %>
-
                                         <table class="table able-bordered my-4 mt-5">
                                             <thead class="thead-dark">
                                                 <tr>
@@ -81,6 +80,7 @@
                                                     <th scope="col">Assignment1</th>
                                                     <th scope="col">Assignment2</th>
                                                     <th scope="col">Assignment3</th>
+                                                    
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -175,13 +175,13 @@
                     <div class="container-sm ">
                         <div class="container-sm " style="width: 720px; ">
                             <div class="jumbotron " style="border: 1px solid black; ">
-                                <h4 class="display-4 text-center " style="margin-bottom: 3%; ">Delete Student From Database</h4>
+                                <h4 class="display-4 text-center "  style="margin-bottom: 3%; ">Delete Student From Database</h4>
                                 <h2 style="margin-bottom: 2%; "> <span class="badge badge-pill badge-dark mt-4 ">Delete By USN</span></h2>
                                 <img style="width: 300px; " class="img-fluid mx-auto d-block mb-5 " src="/img/throw.svg " alt="search " />
 
-                                <form action="/auth/remove " method="POST ">
+                                <form action="/auth/remove" method="POST" >
                                     <div class="input-group mb-3 " id="deleteByUsn">
-                                        <input type="text " pattern="1ew\d\d[a-z][a-z]\d\d\d" title="it should start with 1ew and year then branc then roll number" class="form-control " type="text " name="usnSearch " id="usnSearch " aria-describedby="button-addon2 ">
+                                        <input type="text " pattern="1ew\d\d[a-z][a-z]\d\d\d" title="it should start with 1ew and year then branc then roll number" class="form-control " type="text " name="usnSearch" id="usnSearch" aria-describedby="button-addon2 " >
                                         <div class="input-group-append ">
                                             <button class="btn btn-outline-dark bg-danger text-white " value="Delete Record " type="submit " id="button-addon2 ">Delete Record</button>
                                         </div>
