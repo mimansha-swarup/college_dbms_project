@@ -1,3 +1,4 @@
+const { render } = require("ejs");
 const mysql = require("mysql");
 
 
@@ -66,8 +67,15 @@ exports.addStud = (req, res) => {
     });
 
 
+};
 
+exports.getLog = (req, res) => {
+    mysqlConnection.query("select * from log", (error, results) => {
+        return res.render("admin", {
+            logTable: results[0]
+        });
 
+    });
 }
 
 
@@ -242,12 +250,15 @@ exports.remove = (req, res) => {
 
 
 
-
 exports.getDetails = (req, res) => {
 
     const { usnSearch } = req.body;
 
-    mysqlConnection.query(`select * from  student  where  usn = "${usnSearch}"`, (error, results) => {
+    mysqlConnection.query(`select *
+    from  student 
+    inner join assignment_link
+    on student.usn=assignment_link.usn where student.usn="${usnSearch}"`, (error, results) => {
+        console.log(results[0])
 
 
 
@@ -273,6 +284,59 @@ exports.getDetails = (req, res) => {
 
 
     });
+
+}
+exports.addLink = (req, res) => {
+
+
+    const objValue = Object.values(req.body);
+    const usnSearch = objValue[0];
+    const l = objValue[1];
+    const driveLink = objValue[2];
+
+    if (l == "link1" && driveLink) {
+        mysqlConnection.query(`update  assignment_link set ? where  usn = "${usnSearch}"`, { link1: driveLink }, (error, results) => {
+            if (error) {
+                console.log(error);
+            } else {
+                return res.render("student", {
+                    isSuccess: "Submitted Successfully"
+                });
+            }
+        });
+
+    } else if (l == "link2" && driveLink) {
+        mysqlConnection.query(`update  assignment_link set ? where  usn = "${usnSearch}"`, { link2: driveLink }, (error, results) => {
+            if (error) {
+                console.log(error);
+            } else {
+                return res.render("student", {
+                    isSuccess: "Submitted Successfully"
+                });
+            }
+        });
+
+    } else if (l == "link3" && driveLink) {
+        mysqlConnection.query(`update  assignment_link set ? where  usn = "${usnSearch}"`, { link3: driveLink }, (error, results) => {
+            if (error) {
+                console.log(error);
+            } else {
+                return res.render("student", {
+                    isSuccess: "Submitted Successfully"
+                });
+            }
+        });
+
+    } else {
+
+        return res.render("student", {
+
+            isError: true
+
+        });
+    }
+
+
 
 
 }
