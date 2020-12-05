@@ -256,9 +256,12 @@ exports.getDetails = (req, res) => {
 
     mysqlConnection.query(`select *
     from  student 
-    inner join assignment_link
-    on student.usn=assignment_link.usn where student.usn="${usnSearch}"`, (error, results) => {
-        console.log(results[0])
+    inner join assignment_marks
+    on student.usn=assignment_marks.usn 
+    inner join assignment_link 
+    on student.usn=assignment_link.usn 
+    where student.usn="${usnSearch}"`, (error, results) => {
+
 
 
 
