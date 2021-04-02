@@ -8,14 +8,20 @@
 
 ## Screenshots
 
-#### Admin page
-<img src= "https://github.com/mimansha-swarup/college_dbms_project/blob/main/output/adminPage.jpg" alt="Admin page"></img>
+<p float="left">
+   
+<img src= "https://github.com/mimansha-swarup/college_dbms_project/blob/main/output/adminPage.jpg" height=500px alt="Admin page" />
 
-#### Teacher Page
-<img src= "https://github.com/mimansha-swarup/college_dbms_project/blob/main/output/teachersPage.jpg" style="height: 100px;" alt="Teacher Page"></img>
 
-#### Home Page
-<img src= "https://github.com/mimansha-swarup/college_dbms_project/blob/main/output/homepage.jpg" alt="Home Page"></img>
+<img src= "https://github.com/mimansha-swarup/college_dbms_project/blob/main/output/teachersPage.jpg" height=800px alt="Teacher Page" />
 
-#### Student Page
-<img src= "https://github.com/mimansha-swarup/college_dbms_project/blob/main/output/studentPage.jpg"  alt="Student Page"></img>
+</p>
+#### Admin page  Teacher Page 
+<p float="left">
+<img src= "https://github.com/mimansha-swarup/college_dbms_project/blob/main/output/homepage.jpg" height=500px alt="Home Page"/>
+
+
+<img src= "https://github.com/mimansha-swarup/college_dbms_project/blob/main/output/studentPage.jpg" height=500px alt="Student Page"/>
+</p>
+
+#### Admin page  Teacher Page Home Page Student Page
